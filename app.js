@@ -28,7 +28,8 @@ var CFG = {
     ["Sobre", "#sobre"],
     ["Especialidades", "#areas"],
     ["Método", "#como-funciona"],
-    ["Onde Treinar", "#modalidades"],
+    ["Modalidades", "#modalidades"],
+    ["Planos", "#planos"],
     ["Dúvidas", "#faq"]
   ],
   /* 8 cards de foco - Originais da Metodologia Sofia da Rocha */
@@ -93,20 +94,20 @@ var CFG = {
   ],
   steps: [
     [
-      "Primeiro contacto e avaliação",
-      "Conhecer os teus objetivos, necessidades, rotina e ponto de partida individual."
+      "Diagnóstico & Anamnese Integral",
+      "Avaliação inicial dos teus objetivos, rotina diária, histórico desportivo e eventuais restrições anatómicas."
     ],
     [
-      "Planeamento personalizado",
-      "Definir a periodização sob medida, seleção de exercícios, volumes e cargas adequadas."
+      "Prescrição Sob Medida",
+      "Desenvolvimento da tua periodização individual, com seleção precisa de exercícios, volumes e cargas."
     ],
     [
-      "Acompanhamento ativo",
-      "Orientação rigorosa no estúdio ou tutoria contínua em vídeo na consultoria online."
+      "Acompanhamento & Tutoria Ativa",
+      "Orientação rigorosa no estúdio ou feedback contínuo via vídeo na consultoria online para máxima eficiência."
     ],
     [
-      "Ajustes e progressão",
-      "Reavaliar métricas, ajustar cargas e adaptar o planeamento à tua resposta biológica."
+      "Progressão & Reavaliação",
+      "Monitorização sistemática da tua resposta biológica, com ajustes regulares para manter a evolução contínua."
     ]
   ],
   modes: [
@@ -117,7 +118,7 @@ var CFG = {
       title: "Treino Presencial no Estúdio",
       text: "Sessões 1-para-1 exclusivas no Private Fitness Studio (Rua Serpa Pinto, nº 50). Ambiente reservado, equipamentos Semperfit e acompanhamento individualizado.",
       cta: "Conhecer o Treino Presencial",
-      link: "Candidatar a vaga presencial"
+      link: "Consultar planos e valores"
     },
     {
       id: "online",
@@ -126,9 +127,60 @@ var CFG = {
       title: "Consultoria de Treino Online",
       text: "Acompanhamento à distância com a mesma metodologia do estúdio. Fichas detalhadas, tutoriais de execução em vídeo e suporte direto no WhatsApp.",
       cta: "Quero Consultoria Online",
-      link: "Saber mais sobre a consultoria"
+      link: "Ver planos e opções"
     }
   ],
+  planTypes: [
+    {
+      id: "mensal",
+      name: "Mensal",
+      word: "mensal",
+      tag: "Foco Inicial · 1 Mês",
+      desc: "Período inicial para adaptação neuromuscular e estabelecimento de rotina.",
+      price: 39,
+      note: "Valor mensal em euros (€)"
+    },
+    {
+      id: "trimestral",
+      name: "Trimestral",
+      word: "trimestral",
+      tag: "Consistência · 3 Meses",
+      desc: "Ciclo ideal para consolidar a técnica e alcançar transformações visíveis na composição corporal.",
+      price: 109,
+      note: "Valor total do trimestre em euros (€)"
+    },
+    {
+      id: "semestral",
+      name: "Semestral",
+      word: "semestral",
+      tag: "Transformação Plena · 6 Meses",
+      desc: "Programa contínuo com evolução sustentada de força, hipertrofia e consolidação de hábitos.",
+      price: 199,
+      note: "Valor total do semestre em euros (€)",
+      feat: true,
+      badge: "Mais Recomendado"
+    }
+  ],
+  included: [
+    "Avaliação inicial e análise postural",
+    "Planeamento 100% individualizado",
+    "Vídeos demonstrativos de cada movimento",
+    "Canal de suporte próximo por WhatsApp",
+    "Registo e monitorização de cargas",
+    "Reavaliações periódicas de evolução",
+    "Benefício de 10% na Semperfit (Cupão DAROCHA10)"
+  ],
+  checkins: {
+    intro: "O acompanhamento conta com análises regulares para acompanhar a tua evolução:",
+    items: [
+      "Progressão nas cargas e repetições",
+      "Feedback de recuperação e energia diária",
+      "Ajustes na biomecânica e postura",
+      "Aderência à frequência estipulada",
+      "Revisão contínua das metas traçadas"
+    ],
+    cycle: "A reformulação completa do planeamento é realizada sempre que o teu desenvolvimento exigir, habitualmente num ciclo de 8 a 12 semanas."
+  },
   faq: [
     [
       "Como funcionam as sessões presenciais no estúdio?",
@@ -248,17 +300,12 @@ var QUIZ = [
     ]
   },
   {
-    key: "start",
-    q: "Quando gostarias de iniciar o teu acompanhamento?",
-    hint: "Ajuda a Sofia a organizar a agenda da tua conversa inicial.",
+    key: "plan",
+    q: "Qual é o horizonte de plano pretendido?",
+    hint: "Podes rever as opções e respetivos valores na secção Planos.",
     type: "single",
-    label: "Previsão de Início",
-    opts: [
-      "O mais breve possível (esta semana)",
-      "Nas próximas 2 semanas",
-      "No próximo mês",
-      "Apenas a conhecer as opções"
-    ]
+    label: "Plano Pretendido",
+    opts: CFG.planTypes.map(function(p) { return p.name; }).concat(["Gostaria de esclarecer primeiro com a Sofia"])
   }
 ];
 
@@ -350,9 +397,30 @@ $("#modes").innerHTML = CFG.modes.map(function(m, i) {
     + '<div class="m-foot">'
     + '<a class="btn ' + (m.cls === 'a' ? 'btn-primary' : 'btn-ghost on-light') + '" data-wa="' + m.id + '" href="' + CFG.waDirect + '" target="_blank" rel="noopener">'
     + esc(m.cta) + '</a>'
-    + '<a class="m-lnk" href="#questionario">' + esc(m.link) + ' →</a>'
+    + '<a class="m-lnk" href="#planos">' + esc(m.link) + ' →</a>'
     + '</div></article>';
 }).join("");
+
+/* Stack Cards em Planos */
+$("#stack").innerHTML =
+  '<article class="scard light" style="--i:0"><div><p class="sk">Acompanhamento</p><h3>' + esc(CFG.checkins.intro) + '</h3></div>'
+  + '<div><ul class="incl-list">' + CFG.checkins.items.map(function(x) { return "<li>" + esc(x) + "</li>"; }).join("") + '</ul><p class="cyc" style="margin-top:16px;font-size:.9rem;color:#666">' + esc(CFG.checkins.cycle) + '</p></div></article>'
+  + '<article class="scard deep" style="--i:1"><div><p class="sk">Garantias do Programa</p><h3>Incluído em Todas as Opções</h3></div>'
+  + '<div><ul class="incl-list">' + CFG.included.map(function(x) { return "<li>" + esc(x) + "</li>"; }).join("") + '</ul></div></article>';
+
+/* Renderização dos Planos em Euros */
+function renderPlans() {
+  var grid = $("#plan-grid");
+  grid.innerHTML = CFG.planTypes.map(function(pt) {
+    return '<article class="plan' + (pt.feat ? ' feat dark' : '') + '" aria-labelledby="pl-' + pt.id + '">'
+      + (pt.badge ? '<span class="pbadge">' + esc(pt.badge) + '</span>' : '')
+      + '<p class="ptag">' + esc(pt.tag) + '</p>'
+      + '<div><h3 class="pn" id="pl-' + pt.id + '">' + esc(pt.name) + '</h3><p class="pd">' + esc(pt.desc) + '</p></div>'
+      + '<div class="price"><span class="cur">€</span><span class="num">' + pt.price + '</span></div><p class="pnote">' + esc(pt.note) + '</p>'
+      + '<div class="acts"><button type="button" class="btn btn-primary" data-plan="' + pt.id + '">Escolher Plano →</button></div></article>';
+  }).join("");
+}
+renderPlans();
 
 /* Accordion de Perguntas Frequentes (FAQ) */
 $("#acc").innerHTML = CFG.faq.map(function(f, i) {
@@ -525,6 +593,12 @@ document.addEventListener("click", function(e) {
     var msg = CFG.msgs[typ] || CFG.msgs.general;
     b.href = CFG.waDirect + "?text=" + encodeURIComponent(msg);
   }
+  var pbtn = e.target.closest("[data-plan]");
+  if (pbtn) {
+    var pid = pbtn.getAttribute("data-plan");
+    var ptext = "Olá, Sofia! Tenho interesse no Plano " + pid.toUpperCase() + ". Podes dizer-me os próximos passos para começar?";
+    window.open(CFG.waDirect + "?text=" + encodeURIComponent(ptext), "_blank", "noopener");
+  }
 });
 
 /* Observer para Animações Reveal */
@@ -533,13 +607,12 @@ if ('IntersectionObserver' in window && !reduced()) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         entry.target.classList.remove("pre");
-        entry.target.classList.add("in-view");
         obs.unobserve(entry.target);
       }
     });
   }, { rootMargin: "0px 0px -40px 0px", threshold: 0.1 });
 
-  document.querySelectorAll("[data-reveal], .focus-grid .fc, #about-video-box, #about-narrative").forEach(function(el) {
+  document.querySelectorAll("[data-reveal], .focus-grid .fc").forEach(function(el) {
     el.classList.add("pre");
     obs.observe(el);
   });
