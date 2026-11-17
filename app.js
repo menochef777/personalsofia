@@ -93,20 +93,20 @@ var CFG = {
   ],
   steps: [
     [
-      "Diagnóstico & Anamnese Integral",
-      "Avaliação inicial dos teus objetivos, rotina diária, histórico desportivo e eventuais restrições anatómicas."
+      "Primeiro contacto e avaliação",
+      "Conhecer os teus objetivos, necessidades, rotina e ponto de partida individual."
     ],
     [
-      "Prescrição Sob Medida",
-      "Desenvolvimento da tua periodização individual, com seleção precisa de exercícios, volumes e cargas."
+      "Planeamento personalizado",
+      "Definir a periodização sob medida, seleção de exercícios, volumes e cargas adequadas."
     ],
     [
-      "Acompanhamento & Tutoria Ativa",
-      "Orientação rigorosa no estúdio ou feedback contínuo via vídeo na consultoria online para máxima eficiência."
+      "Acompanhamento ativo",
+      "Orientação rigorosa no estúdio ou tutoria contínua em vídeo na consultoria online."
     ],
     [
-      "Progressão & Reavaliação",
-      "Monitorização sistemática da tua resposta biológica, com ajustes regulares para manter a evolução contínua."
+      "Ajustes e progressão",
+      "Reavaliar métricas, ajustar cargas e adaptar o planeamento à tua resposta biológica."
     ]
   ],
   modes: [

@@ -846,79 +846,127 @@ html.menu-open { overflow: hidden; }
 }
 
 /* ==============================================================
-   COMO FUNCIONA: 4 Passos Metálicos Numerados
+   COMO FUNCIONA: Estilo Arejado, Linha Superior & Números Outline
+   Inspirado no visual de referência de alto contraste
    ============================================================== */
-.process {
-  background: var(--bg-canvas);
+.process.light-process {
+  background: #F7F4EE;
+  color: #151518;
+  padding: clamp(70px, 9vw, 120px) 0;
+  border-block: 1px solid #E5E0D5;
 }
-.process .head {
+.process.light-process .head {
   display: grid;
   gap: 16px;
-  margin-bottom: 52px;
-  max-width: 60ch;
+  margin-bottom: clamp(48px, 6vw, 72px);
+  max-width: 62ch;
 }
-.steps {
+.process.light-process .kicker {
+  font-family: var(--f-display);
+  font-size: 0.74rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #732034;
+}
+.process.light-process h2 {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #15151A;
+}
+.process.light-process h2 em {
+  display: block;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  color: #732034 !important;
+  -webkit-text-fill-color: #732034 !important;
+  text-shadow: none !important;
+}
+.process.light-process .lead {
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  color: #585550;
+  line-height: 1.6;
+}
+
+.process.light-process .steps {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 16px;
+  gap: clamp(28px, 4vw, 44px);
 }
 @media (min-width: 700px) {
-  .steps { grid-template-columns: repeat(2, 1fr); }
+  .process.light-process .steps { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 1000px) {
-  .steps { grid-template-columns: repeat(4, 1fr); }
+  .process.light-process .steps { grid-template-columns: repeat(4, 1fr); }
 }
 
-.step {
-  background: #12121A;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 28px 24px;
-  display: grid;
-  gap: 14px;
-  transition: transform 0.3s, border-color 0.3s, background 0.3s;
+.process.light-process .step {
+  background: transparent;
+  border: none;
+  border-top: 1.5px solid #2B2B32;
+  border-radius: 0;
+  padding: 24px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: transform 0.3s ease;
 }
-.step:hover {
+.process.light-process .step:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.28);
-  background: #181824;
+  background: transparent;
 }
-.step .n {
+.process.light-process .step .n {
   font-family: var(--f-display);
   font-weight: 800;
-  font-size: 1.1rem;
-  letter-spacing: 0.1em;
-  color: #FFFFFF;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: clamp(3rem, 5vw, 4.4rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  display: block;
+  width: auto;
+  height: auto;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  color: transparent;
+  -webkit-text-stroke: 1.6px #732034;
+  margin-bottom: 20px;
 }
-.step h3 {
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  color: #FFFFFF;
+.process.light-process .step h3 {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  color: #151518;
+  margin: 0 0 10px 0;
+  line-height: 1.35;
+  text-transform: none;
 }
-.step p {
+.process.light-process .step p {
+  font-family: var(--f-body);
   font-size: 0.94rem;
-  color: var(--taupe-tx);
-  line-height: 1.5;
+  color: #555562;
+  line-height: 1.6;
+  margin: 0;
 }
-.res {
-  margin-top: 36px;
+
+.process.light-process .res {
+  margin-top: clamp(48px, 6vw, 76px);
   font-family: var(--f-display);
   font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  text-align: center;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: #732034;
+  text-align: left;
 }
 
 /* ==============================================================
