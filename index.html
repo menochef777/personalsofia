@@ -22,7 +22,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,500;1,700;1,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,500;1,700;1,800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
   
   <meta name="theme-color" content="#08080B">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23581C2D'/%3E%3Cpath d='M10 13c0-1.8 1.5-3 3.5-3h3c2 0 3.5 1.2 3.5 3 0 1.5-.8 2.5-2.2 3l-4 1c-1.8.5-3 1.8-3 3.5 0 2.2 1.8 4 4 4h3c2.2 0 4-1.8 4-4' stroke='%23FFFFFF' stroke-width='2.4' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
@@ -112,32 +112,35 @@
   <main id="conteudo">
     <!-- HERO -->
     <section class="hero dark" id="inicio" aria-labelledby="h1">
-      <div class="wrap">
-        <div>
-          <h1 id="h1" class="rise" style="--d:.15s">
-            Constrói a tua melhor versão com método, <em>força</em> e exclusividade.
-          </h1>
-          <p class="lead rise" style="--d:.3s">
-            Treino individualizado no Private Fitness Studio em Praia da Vitória e consultoria online. Metodologia orientada para hipertrofia, biomecânica e evolução sustentada.
-          </p>
-          <div class="ctas rise" style="--d:.42s">
-            <a class="btn btn-ghost" href="#modalidades">
-              Conhecer Modalidades
-            </a>
-            <a class="btn btn-light" href="#questionario" style="margin-left: 12px;">
-              Iniciar Avaliação
-            </a>
+      <div class="wrap hero-glass-wrapper">
+        <div class="hero-glass">
+          <div class="hero-content">
+            <h1 id="h1" class="rise" style="--d:.15s">
+              O teu próximo <em class="word-hl">nível</em> começa com treino feito para ti.
+            </h1>
+            <p class="lead rise" style="--d:.3s">
+              Treino individualizado no Private Fitness Studio em Praia da Vitória e consultoria online. Metodologia com rigor biomecânico, privacidade e foco na tua evolução.
+            </p>
+            <div class="ctas rise" style="--d:.42s">
+              <a class="btn btn-ghost" href="#modalidades">
+                Onde Treinar
+              </a>
+              <a class="btn btn-light" href="#questionario" style="margin-left: 12px;">
+                Iniciar Avaliação
+              </a>
+            </div>
           </div>
+          <figure class="photo rise" style="--d:.25s;margin:0">
+            <div class="photo-glow" aria-hidden="true"></div>
+            <div class="frame">
+              <img src="assets/sofia_hero.webp" alt="Sofia da Rocha, Personal Trainer no estúdio" width="960" height="1280" fetchpriority="high" decoding="async">
+            </div>
+            <figcaption>
+              <span>Sofia da Rocha</span>
+              <span>Praia da Vitória · Açores</span>
+            </figcaption>
+          </figure>
         </div>
-        <figure class="photo rise" style="--d:.25s;margin:0">
-          <div class="frame">
-            <img src="assets/sofia_hero.webp" alt="Sofia da Rocha, Personal Trainer no estúdio" width="960" height="1280" fetchpriority="high" decoding="async">
-          </div>
-          <figcaption>
-            <span>Sofia da Rocha</span>
-            <span>Praia da Vitória · Açores</span>
-          </figcaption>
-        </figure>
       </div>
     </section>
 
@@ -149,33 +152,42 @@
     <!-- SOBRE -->
     <section class="about" id="sobre" aria-labelledby="h-sobre">
       <div class="wrap">
-        <div class="about-media-box" data-reveal style="margin:0">
+        <!-- VÍDEO SHOWCASE CENTRAL COM EFEITO DE DESCIDA -->
+        <div class="about-video-showcase" id="about-video-box" data-reveal>
           <div class="about-video-frame">
             <video class="about-video" autoplay loop muted playsinline poster="assets/sectionvideo_poster.jpg">
               <source src="assets/sectionvideo.mp4" type="video/mp4">
             </video>
             <div class="video-live-tag">
               <span class="live-dot"></span>
-              <span>Private Fitness Studio</span>
+              <span>Private Fitness Studio · Praia da Vitória</span>
             </div>
           </div>
-          <figcaption class="tag">Sofia da Rocha <span>PERSONAL TRAINER</span></figcaption>
+          <figcaption class="tag">Sofia da Rocha <span>PERSONAL TRAINER · CÉDULA TEF 141706</span></figcaption>
         </div>
-        <div data-reveal style="--d:.1s">
-          <p class="kicker" style="color:var(--burg)">Metodologia &amp; Propósito</p>
-          <h2 id="h-sobre">Uma abordagem com <em class="hl">rigor técnico,</em> desenhada exclusivamente para ti.</h2>
-          <div class="body">
-            <p>Sou a Sofia da Rocha, Personal Trainer e mentora no <b>Private Fitness Studio</b> em Praia da Vitória. O meu trabalho consiste em orientar homens e mulheres no desenvolvimento de força muscular sólida, remodelação corporal e melhoria contínua da saúde funcional.</p>
-            <p>Defendo que o verdadeiro resultado surge do equilíbrio entre intensidade correta, técnica irrepreensível e respeito aos teus limites anatómicos. Aqui não há treinos genéricos: cada prescrição respeita a tua individualidade e objetivos.</p>
-            <p>No estúdio, usufruis de um espaço boutique 100% reservado e sem aglomerações. Para quem reside fora da Ilha Terceira, disponibilizo a mesma metodologia através de uma consultoria online próxima e detalhada.</p>
+
+        <!-- TEXTOS ABAIXO DO VÍDEO COM REVELAÇÃO NO SCROLL -->
+        <div class="about-narrative" id="about-narrative">
+          <div class="about-head" data-reveal>
+            <p class="kicker" style="color:var(--burg)">Metodologia &amp; Propósito</p>
+            <h2 id="h-sobre">Uma abordagem com <em class="hl">rigor técnico,</em> desenhada exclusivamente para ti.</h2>
           </div>
-          <div class="formation">
-            <b>Estúdio Privado:</b> Rua Serpa Pinto, nº 50 · 9760-545 Praia da Vitória (Ilha Terceira)<br>
-            <b>Cédula Profissional TEF:</b> nº 141706 · <b>Parceira Oficial:</b> @semperfit_official (Cupão DAROCHA10)
+          <div class="about-grid-content">
+            <div class="body" data-reveal style="--d:.1s">
+              <p>Sou a Sofia da Rocha, Personal Trainer e mentora no <b>Private Fitness Studio</b> em Praia da Vitória. O meu trabalho consiste em orientar homens e mulheres no desenvolvimento de força muscular sólida, remodelação corporal e melhoria contínua da saúde funcional.</p>
+              <p>Defendo que o verdadeiro resultado surge do equilíbrio entre intensidade correta, técnica irrepreensível e respeito aos teus limites anatómicos. Aqui não há treinos genéricos: cada prescrição respeita a tua individualidade e objetivos.</p>
+              <p>No estúdio, usufruis de um espaço boutique 100% reservado e sem aglomerações. Para quem reside fora da Ilha Terceira, disponibilizo a mesma metodologia através de uma consultoria online próxima e detalhada.</p>
+            </div>
+            <div class="about-side" data-reveal style="--d:.2s">
+              <div class="formation">
+                <b>Estúdio Privado:</b> Rua Serpa Pinto, nº 50 · 9760-545 Praia da Vitória (Ilha Terceira)<br>
+                <b>Cédula Profissional TEF:</b> nº 141706 · <b>Parceira Oficial:</b> @semperfit_official (Cupão DAROCHA10)
+              </div>
+              <p class="fchips-t">Pilares de Atuação</p>
+              <div class="fchips" id="fchips"></div>
+              <p class="pull"><span class="hl">A força não é apenas um resultado — é o teu melhor investimento diário.</span></p>
+            </div>
           </div>
-          <p class="fchips-t">Pilares de Atuação</p>
-          <div class="fchips" id="fchips"></div>
-          <p class="pull"><span class="hl">A força não é apenas um resultado — é o teu melhor investimento diário.</span></p>
         </div>
       </div>
     </section>
@@ -206,7 +218,7 @@
       </div>
     </section>
 
-    <!-- MODALIDADES -->
+    <!-- ONDE TREINAR (LOCALIZAÇÃO & MAPA) -->
     <section class="modes" id="modalidades" aria-labelledby="h-mod">
       <div class="wrap">
         <div class="head" data-reveal>
@@ -214,18 +226,49 @@
           <h2 id="h-mod">Presencial na Praia da Vitória. <em>Consultoria Online Global.</em></h2>
           <p class="lead muted">Escolhe a experiência que melhor se enquadra na tua rotina e localização.</p>
         </div>
-        <div class="mode-grid" id="modes"></div>
+
+        <div class="location-layout">
+          <!-- CARDS DE MODALIDADE -->
+          <div class="location-cards" id="modes"></div>
+
+          <!-- MAPA INTERATIVO NO ENDEREÇO DA SOFIA -->
+          <div class="map-card" data-reveal style="--d:0.15s">
+            <div class="map-header">
+              <div class="map-info">
+                <span class="map-badge">📍 Localização Exclusiva</span>
+                <h4>Private Fitness Studio</h4>
+                <p>Rua Serpa Pinto, nº 50 · 9760-545 Praia da Vitória, Ilha Terceira, Açores</p>
+              </div>
+              <a class="btn btn-ghost btn-sm" href="https://www.google.com/maps/search/?api=1&query=Rua+Serpa+Pinto+50,+9760-545+Praia+da+Vit%C3%B3ria,+Portugal" target="_blank" rel="noopener">
+                Abrir no Google Maps ↗
+              </a>
+            </div>
+            <div class="map-frame-wrapper">
+              <iframe 
+                class="studio-map"
+                src="https://maps.google.com/maps?q=Rua+Serpa+Pinto+50,+Praia+da+Vit%C3%B3ria,+Portugal&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Localização do Private Fitness Studio - Sofia da Rocha">
+              </iframe>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- QUESTIONÁRIO DE TRIAGEM -->
-    <section class="quiz dark" id="questionario" aria-labelledby="h-quiz">
+    <!-- QUESTIONÁRIO DE TRIAGEM (TEMA CLARO & ILUMINADO) -->
+    <section class="quiz light-section" id="questionario" aria-labelledby="h-quiz">
       <div class="wrap">
         <div class="intro" data-reveal>
-          <p class="kicker" style="color:var(--taupe);margin:0">Triagem Inicial</p>
+          <p class="kicker" style="color:var(--burg);margin:0">Triagem Inicial</p>
           <h2 id="h-quiz">O teu primeiro <em class="hl hl-b">passo</em> começa aqui.</h2>
           <p class="lead">Partilha connosco as tuas metas e preferências. Vamos estruturar a melhor abordagem para o teu perfil físico.</p>
-          <p class="priv" style="color:var(--taupe)">Perguntas rápidas e diretas. No fim, envias as respostas à Sofia pelo WhatsApp.</p>
+          <p class="priv" style="color:#6A6A7E">Perguntas rápidas e diretas. No fim, envias as respostas à Sofia pelo WhatsApp.</p>
         </div>
         <div class="qcard" data-reveal style="--d:.1s">
           <div class="qtop">

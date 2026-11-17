@@ -28,7 +28,7 @@ var CFG = {
     ["Sobre", "#sobre"],
     ["Especialidades", "#areas"],
     ["Método", "#como-funciona"],
-    ["Modalidades", "#modalidades"],
+    ["Onde Treinar", "#modalidades"],
     ["Dúvidas", "#faq"]
   ],
   /* 8 cards de foco - Originais da Metodologia Sofia da Rocha */
@@ -533,12 +533,13 @@ if ('IntersectionObserver' in window && !reduced()) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         entry.target.classList.remove("pre");
+        entry.target.classList.add("in-view");
         obs.unobserve(entry.target);
       }
     });
   }, { rootMargin: "0px 0px -40px 0px", threshold: 0.1 });
 
-  document.querySelectorAll("[data-reveal], .focus-grid .fc").forEach(function(el) {
+  document.querySelectorAll("[data-reveal], .focus-grid .fc, #about-video-box, #about-narrative").forEach(function(el) {
     el.classList.add("pre");
     obs.observe(el);
   });
