@@ -114,50 +114,22 @@ var CFG = {
     {
       id: "presencial",
       cls: "a",
-      flags: ["pt"],
       where: "Praia da Vitória · Ilha Terceira",
       title: "Treino Presencial no Estúdio",
       text: "Sessões 1-para-1 exclusivas no Private Fitness Studio (Rua Serpa Pinto, nº 50). Ambiente reservado, equipamentos Semperfit e acompanhamento individualizado.",
       cta: "Conhecer o Treino Presencial",
-      market: "pt",
-      link: "Consultar valores em Portugal"
+      link: "Consultar planos e valores"
     },
     {
       id: "online",
       cls: "b",
-      flags: ["pt", "br"],
-      where: "Portugal & Internacional",
+      where: "Portugal e Online",
       title: "Consultoria de Treino Online",
       text: "Acompanhamento à distância com a mesma metodologia do estúdio. Fichas detalhadas, tutoriais de execução em vídeo e suporte direto no WhatsApp.",
       cta: "Quero Consultoria Online",
-      market: "keep",
       link: "Ver planos e opções"
     }
   ],
-  markets: {
-    pt: {
-      label: "Portugal",
-      currency: "eur",
-      of: "em Portugal",
-      note: "Portugal · presencial no Private Fitness Studio (Praia da Vitória) e consultoria online · valores em euros (€)",
-      prices: {
-        mensal: { price: 39 },
-        trimestral: { price: 109 },
-        semestral: { price: 199 }
-      }
-    },
-    br: {
-      label: "Brasil & Exterior",
-      currency: "brl",
-      of: "no Brasil e Internacional",
-      note: "Brasil e Internacional · consultoria de treino online personalizada · valores em reais (R$)",
-      prices: {
-        mensal: { price: 139 },
-        trimestral: { price: 369 },
-        semestral: { price: 699 }
-      }
-    }
-  },
   planTypes: [
     {
       id: "mensal",
@@ -165,7 +137,8 @@ var CFG = {
       word: "mensal",
       tag: "Foco Inicial · 1 Mês",
       desc: "Período inicial para adaptação neuromuscular e estabelecimento de rotina.",
-      note: "Valor mensal"
+      price: 39,
+      note: "Valor mensal em euros (€)"
     },
     {
       id: "trimestral",
@@ -173,7 +146,8 @@ var CFG = {
       word: "trimestral",
       tag: "Consistência · 3 Meses",
       desc: "Ciclo ideal para consolidar a técnica e alcançar transformações visíveis na composição corporal.",
-      note: "Valor total do trimestre"
+      price: 109,
+      note: "Valor total do trimestre em euros (€)"
     },
     {
       id: "semestral",
@@ -181,7 +155,8 @@ var CFG = {
       word: "semestral",
       tag: "Transformação Plena · 6 Meses",
       desc: "Programa contínuo com evolução sustentada de força, hipertrofia e consolidação de hábitos.",
-      note: "Valor total do semestre",
+      price: 199,
+      note: "Valor total do semestre em euros (€)",
       feat: true,
       badge: "Mais Recomendado"
     }
@@ -271,10 +246,16 @@ var QUIZ = [
   {
     key: "country",
     q: "Onde resides atualmente?",
-    hint: "Na Ilha Terceira dispões de sessões presenciais no estúdio privado ou acompanhamento online. Noutras localizações, o acompanhamento é online.",
+    hint: "No Private Fitness Studio o treino é presencial na Praia da Vitória. Fora da ilha Terceira, o acompanhamento é feito através da consultoria online.",
     type: "single",
     label: "Localização",
-    opts: ["Portugal (Ilha Terceira)", "Portugal (Continente e outras Ilhas)", "Brasil ou Internacional"]
+    opts: [
+      "Praia da Vitória (Ilha Terceira)",
+      "Outro concelho da Ilha Terceira",
+      "Açores (Outra Ilha)",
+      "Portugal Continental / Madeira",
+      "Outro país (Europa / Internacional)"
+    ]
   },
   {
     key: "format",
@@ -283,7 +264,7 @@ var QUIZ = [
     type: "single",
     label: "Modalidade Preferida",
     opts: ["Presencial no Private Fitness Studio (Praia da Vitória)", "Consultoria Online Personalizada"],
-    when: function() { return S.a.country && S.a.country.indexOf("Ilha Terceira") !== -1; }
+    when: function() { return S.a["Localização"] && S.a["Localização"].indexOf("Terceira") !== -1; }
   },
   {
     key: "level",
@@ -427,41 +408,19 @@ $("#stack").innerHTML =
   + '<article class="scard deep" style="--i:1"><div><p class="sk">Garantias do Programa</p><h3>Incluído em Todas as Opções</h3></div>'
   + '<div><ul class="incl-list">' + CFG.included.map(function(x) { return "<li>" + esc(x) + "</li>"; }).join("") + '</ul></div></article>';
 
-/* Renderização dos Planos */
-function priceHTML(m, p) {
-  if (m.currency === "eur") {
-    return '<span class="cur">€</span><span class="val">' + p.price + '</span>';
-  } else {
-    return '<span class="cur">R$</span><span class="val">' + p.price + '</span>';
-  }
-}
-
-function renderPlans(mk, animate) {
-  var m = CFG.markets[mk], grid = $("#plan-grid");
+/* Renderização dos Planos em Euros */
+function renderPlans() {
+  var grid = $("#plan-grid");
   grid.innerHTML = CFG.planTypes.map(function(pt) {
-    var p = m.prices[pt.id];
     return '<article class="plan' + (pt.feat ? ' feat dark' : '') + '" aria-labelledby="pl-' + pt.id + '">'
       + (pt.badge ? '<span class="pbadge">' + esc(pt.badge) + '</span>' : '')
       + '<p class="ptag">' + esc(pt.tag) + '</p>'
       + '<div><h3 class="pn" id="pl-' + pt.id + '">' + esc(pt.name) + '</h3><p class="pd">' + esc(pt.desc) + '</p></div>'
-      + '<div class="price">' + priceHTML(m, p) + '</div><p class="pnote">' + esc(pt.note) + '</p>'
+      + '<div class="price"><span class="cur">€</span><span class="num">' + pt.price + '</span></div><p class="pnote">' + esc(pt.note) + '</p>'
       + '<div class="acts"><button type="button" class="btn btn-primary" data-plan="' + pt.id + '">Escolher Plano →</button></div></article>';
   }).join("");
-  $("#mkt-note").textContent = m.note;
 }
-renderPlans("pt", false);
-
-/* Alternância de Mercados */
-$("#tab-pt").addEventListener("click", function() {
-  $("#tab-pt").setAttribute("aria-selected", "true");
-  $("#tab-br").setAttribute("aria-selected", "false");
-  renderPlans("pt", true);
-});
-$("#tab-br").addEventListener("click", function() {
-  $("#tab-br").setAttribute("aria-selected", "true");
-  $("#tab-pt").setAttribute("aria-selected", "false");
-  renderPlans("br", true);
-});
+renderPlans();
 
 /* Accordion de Perguntas Frequentes (FAQ) */
 $("#acc").innerHTML = CFG.faq.map(function(f, i) {

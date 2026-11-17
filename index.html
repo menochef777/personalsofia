@@ -60,25 +60,13 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   
-  <link rel="stylesheet" href="style.css?v=20261117_04">
+  <link rel="stylesheet" href="style.css?v=20261117_05">
 </head>
 <body>
 
   <!-- SVGs Defs -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <defs>
-      <symbol id="flag-pt" viewBox="0 0 30 20">
-        <rect width="30" height="20" fill="#DA291C"/>
-        <rect width="12" height="20" fill="#046A38"/>
-        <circle cx="12" cy="10" r="4.2" fill="#FFE000"/>
-        <circle cx="12" cy="10" r="2" fill="#fff"/>
-      </symbol>
-      <symbol id="flag-br" viewBox="0 0 30 20">
-        <rect width="30" height="20" fill="#009C3B"/>
-        <path d="M15 2.2 27.2 10 15 17.8 2.8 10z" fill="#FFDF00"/>
-        <circle cx="15" cy="10" r="4.4" fill="#002776"/>
-        <path d="M10.8 9.1Q15 7.9 19.2 11" fill="none" stroke="#fff" stroke-width=".9"/>
-      </symbol>
       <symbol id="ig" viewBox="0 0 24 24">
         <rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/>
         <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
@@ -226,19 +214,8 @@
           <h2 id="h-planos">Planos &amp; <em class="hl">Valores.</em></h2>
         </div>
         <div class="stack" id="stack" aria-label="Garantias e metodologia incluídas"></div>
-        <p class="lead muted pick" data-reveal>Seleciona o teu país para consultar os valores de cada período de acompanhamento.</p>
-        <div class="mkt" role="tablist" aria-label="País">
-          <button class="tab" id="tab-pt" role="tab" aria-selected="true" aria-controls="plan-grid" data-market="pt" type="button">
-            <svg class="flag" aria-hidden="true"><use href="#flag-pt"></use></svg>
-            Portugal
-          </button>
-          <button class="tab" id="tab-br" role="tab" aria-selected="false" aria-controls="plan-grid" tabindex="-1" data-market="br" type="button">
-            <svg class="flag" aria-hidden="true"><use href="#flag-br"></use></svg>
-            Brasil / Internacional
-          </button>
-        </div>
-        <p class="mkt-note" id="mkt-note" aria-live="polite"></p>
-        <div class="plan-grid" id="plan-grid" role="tabpanel" aria-labelledby="tab-pt"></div>
+        <p class="lead muted pick" data-reveal>Valores transparentes para o teu treino presencial no Private Fitness Studio ou consultoria online.</p>
+        <div class="plan-grid" id="plan-grid"></div>
       </div>
     </section>
 
@@ -353,6 +330,6 @@
     </p>
   </noscript>
 
-  <script src="app.js?v=20261117_04"></script>
+  <script src="app.js?v=20261117_05"></script>
 </body>
 </html>
