@@ -550,7 +550,7 @@ html.menu-open { overflow: hidden; }
 .photo-glow {
   position: absolute;
   inset: -25px;
-  background: radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.14) 0%, rgba(139, 30, 63, 0.08) 40%, transparent 70%);
+  background: radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.14) 0%, rgba(148, 163, 184, 0.06) 40%, transparent 70%);
   z-index: 0;
   pointer-events: none;
   animation: photoGlowPulse 6s ease-in-out infinite alternate;
