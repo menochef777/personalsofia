@@ -156,24 +156,26 @@
       <div class="strip-track" id="strip"></div>
     </div>
 
-    <!-- SOBRE -->
+    <!-- SOBRE: VÍDEO NO FUNDO COM VIDRO BLACK GLASS -->
     <section class="about" id="sobre" aria-labelledby="h-sobre">
-      <div class="wrap">
-        <!-- VÍDEO SHOWCASE CENTRAL COM EFEITO DE DESCIDA -->
-        <div class="about-video-showcase" id="about-video-box" data-reveal>
-          <div class="about-video-frame">
-            <video class="about-video" autoplay loop muted playsinline poster="assets/sectionvideo_poster.jpg">
-              <source src="assets/sectionvideo.mp4" type="video/mp4">
-            </video>
-            <div class="video-live-tag">
-              <span class="live-dot"></span>
-              <span>Private Fitness Studio · Praia da Vitória</span>
-            </div>
+      <!-- VÍDEO DE FUNDO COBRINDO A SEÇÃO COMPLETA -->
+      <div class="about-bg-video-wrap" aria-hidden="true">
+        <video class="about-bg-video" autoplay loop muted playsinline poster="assets/sectionvideo_poster.jpg">
+          <source src="assets/sectionvideo.mp4" type="video/mp4">
+        </video>
+        <!-- VIDRO PRETO (BLACK GLASS OVERLAY COM BLUR E CONTRASTE) -->
+        <div class="about-bg-overlay"></div>
+      </div>
+
+      <div class="wrap about-content-wrap">
+        <div style="text-align: center;">
+          <div class="about-top-badge" data-reveal>
+            <span class="live-dot"></span>
+            <span>Private Fitness Studio · Praia da Vitória · Cédula TEF 141706</span>
           </div>
-          <figcaption class="tag">Sofia da Rocha <span>PERSONAL TRAINER · CÉDULA TEF 141706</span></figcaption>
         </div>
 
-        <!-- TEXTOS ABAIXO DO VÍDEO COM REVELAÇÃO NO SCROLL -->
+        <!-- TEXTOS COM ALTA VISIBILIDADE SOBRE O VIDRO -->
         <div class="about-narrative" id="about-narrative">
           <div class="about-head" data-reveal>
             <p class="kicker">Metodologia &amp; Propósito</p>
