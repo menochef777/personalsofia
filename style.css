@@ -389,10 +389,43 @@ html.menu-open { overflow: hidden; }
 }
 
 /* ==============================================================
-   HERO: Fundo #0A0A0C com Movimento Titânio Sutil
+   VÍDEO DE FUNDO SMOOTH SCROLL (Equipamentos Flutuando)
+   ============================================================== */
+.site-scroll-video-wrap {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #0A0A0C;
+}
+.site-scroll-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  filter: brightness(0.65) contrast(1.15) saturate(0.9);
+}
+.site-scroll-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(10, 10, 12, 0.4) 0%, rgba(10, 10, 12, 0.8) 100%);
+  pointer-events: none;
+}
+
+#conteudo {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==============================================================
+   HERO: Fundo Transparente com Vídeo de Equipamentos no Fundo
    ============================================================== */
 .hero {
-  background: var(--bg-main);
+  background: transparent;
   color: var(--text-main);
   padding-block: clamp(36px, 6vw, 72px) clamp(48px, 8vw, 96px);
   position: relative;
@@ -400,11 +433,7 @@ html.menu-open { overflow: hidden; }
 }
 
 .hero-bg-motion {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
+  display: none;
 }
 
 .ambient-orb {
@@ -654,7 +683,8 @@ html.menu-open { overflow: hidden; }
    ============================================================== */
 .about {
   position: relative;
-  background: var(--bg-main);
+  z-index: 3;
+  background: #0A0A0C;
   padding: clamp(72px, 10vw, 136px) 0;
   overflow: hidden;
   border-block: 1px solid rgba(199, 204, 214, 0.1);
@@ -833,8 +863,10 @@ html.menu-open { overflow: hidden; }
    ÁREAS DE ESPECIALIZAÇÃO: Superfície #141418 & Hover #1C1C22
    ============================================================== */
 .areas {
-  background: var(--bg-main);
+  background: transparent;
   color: var(--text-main);
+  position: relative;
+  z-index: 1;
 }
 .areas .head {
   display: grid;
@@ -917,11 +949,12 @@ html.menu-open { overflow: hidden; }
 .process,
 .process.metal-process,
 .process.light-process {
-  background: var(--bg-main);
+  background: transparent;
   color: var(--text-main);
   padding: clamp(70px, 9vw, 120px) 0;
   border-block: 1px solid rgba(199, 204, 214, 0.1);
   position: relative;
+  z-index: 1;
 }
 .process .head {
   display: grid;
@@ -1030,8 +1063,10 @@ html.menu-open { overflow: hidden; }
    ONDE TREINAR: Modalidades & Mapa Interativo
    ============================================================== */
 .modes {
-  background: var(--bg-main);
+  background: transparent;
   padding: clamp(56px, 7vw, 100px) 0;
+  position: relative;
+  z-index: 1;
 }
 .modes .head {
   display: grid;
@@ -1174,10 +1209,12 @@ html.menu-open { overflow: hidden; }
    ============================================================== */
 .quiz,
 .quiz.light-section {
-  background: var(--bg-main);
+  background: transparent;
   color: var(--text-main);
   border-block: 1px solid rgba(199, 204, 214, 0.1);
   padding: clamp(56px, 7vw, 100px) 0;
+  position: relative;
+  z-index: 1;
 }
 .quiz .wrap {
   display: grid;
@@ -1365,7 +1402,9 @@ html.menu-open { overflow: hidden; }
    FAQ: Accordions Titanium em Superfície #141418
    ============================================================== */
 .faq {
-  background: var(--bg-main);
+  background: transparent;
+  position: relative;
+  z-index: 1;
 }
 .faq .intro {
   margin-bottom: 40px;
@@ -1429,10 +1468,12 @@ html.menu-open { overflow: hidden; }
    CTA FINAL: Acento Opcional #B3261E com Parcimónia
    ============================================================== */
 .final {
-  background: radial-gradient(circle at 50% 50%, rgba(199, 204, 214, 0.06) 0%, rgba(10, 10, 12, 0) 70%), var(--bg-main);
+  background: transparent;
   text-align: center;
   padding-block: clamp(72px, 12vw, 140px);
   border-top: 1px solid rgba(199, 204, 214, 0.1);
+  position: relative;
+  z-index: 1;
 }
 .final .wrap {
   display: grid;
@@ -1456,11 +1497,15 @@ html.menu-open { overflow: hidden; }
    RODAPÉ: Fundo #0A0A0C, Logotipo Oficial & Contactos
    ============================================================== */
 .ftr {
-  background: var(--bg-main);
+  background: rgba(10, 10, 12, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-top: 1px solid rgba(199, 204, 214, 0.1);
   padding-top: 64px;
   padding-bottom: 32px;
   color: var(--text-muted);
+  position: relative;
+  z-index: 1;
 }
 .f-top {
   display: grid;

@@ -566,3 +566,50 @@ if (heroEl && !reduced()) {
     }
   }, { passive: true });
 }
+
+/* ==============================================================
+   SMOOTH SCROLL VIDEO ANIMATION (Equipamentos Flutuando)
+   Controle suave do vídeo de fundo sincronizado com o scroll
+   ============================================================== */
+(function() {
+  var video = document.getElementById("site-scroll-video");
+  if (!video) return;
+
+  var targetTime = 0.6;
+  video.pause();
+
+  function calcScrollProgress() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+    var maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    var progress = Math.min(Math.max(scrollTop / maxScroll, 0), 1);
+    if (video.duration && !isNaN(video.duration)) {
+      var start = 0.5;
+      var end = Math.max(video.duration - 0.2, start);
+      targetTime = start + progress * (end - start);
+    }
+  }
+
+  window.addEventListener("scroll", calcScrollProgress, { passive: true });
+  window.addEventListener("resize", calcScrollProgress, { passive: true });
+
+  video.addEventListener("loadedmetadata", function() {
+    calcScrollProgress();
+    video.currentTime = targetTime;
+  });
+
+  function smoothVideoScrub() {
+    if (video.duration && !isNaN(video.duration) && !reduced()) {
+      var diff = targetTime - video.currentTime;
+      if (Math.abs(diff) > 0.015) {
+        var nextTime = video.currentTime + diff * 0.12;
+        if (nextTime >= 0 && nextTime <= video.duration) {
+          video.currentTime = nextTime;
+        }
+      }
+    }
+    requestAnimationFrame(smoothVideoScrub);
+  }
+
+  requestAnimationFrame(smoothVideoScrub);
+  calcScrollProgress();
+})();
