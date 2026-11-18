@@ -425,7 +425,7 @@ html.menu-open { overflow: hidden; }
   left: -10%;
   width: clamp(400px, 45vw, 680px);
   aspect-ratio: 1;
-  background: radial-gradient(circle, rgba(139, 30, 63, 0.22) 0%, rgba(88, 28, 45, 0.08) 45%, transparent 70%);
+  background: radial-gradient(circle, rgba(148, 163, 184, 0.2) 0%, rgba(71, 85, 105, 0.08) 45%, transparent 70%);
   filter: blur(70px);
   animation: orbDrift2 22s ease-in-out infinite alternate;
 }
@@ -550,7 +550,7 @@ html.menu-open { overflow: hidden; }
 .photo-glow {
   position: absolute;
   inset: -25px;
-  background: radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.14) 0%, rgba(139, 30, 63, 0.08) 40%, transparent 70%);
+  background: radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.16) 0%, rgba(148, 163, 184, 0.08) 40%, transparent 70%);
   z-index: 0;
   pointer-events: none;
   animation: photoGlowPulse 6s ease-in-out infinite alternate;
@@ -933,56 +933,64 @@ html.menu-open { overflow: hidden; }
 }
 
 /* ==============================================================
-   COMO FUNCIONA: Estilo Arejado, Linha Superior & Números Outline
-   Inspirado no visual de referência de alto contraste
+   COMO FUNCIONA: Estilo Dark Metal / Aço Escovado & Outline Prata
+   Identidade forte de treino de força, anilhas e barras
    ============================================================== */
-.process.light-process {
-  background: #F7F4EE;
-  color: #151518;
+.process.light-process,
+.process.metal-process {
+  background: #0B0B10;
+  color: #FFFFFF;
   padding: clamp(70px, 9vw, 120px) 0;
-  border-block: 1px solid #E5E0D5;
+  border-block: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
 }
-.process.light-process .head {
+.process.light-process .head,
+.process.metal-process .head {
   display: grid;
   gap: 16px;
   margin-bottom: clamp(48px, 6vw, 72px);
   max-width: 62ch;
 }
-.process.light-process .kicker {
+.process.light-process .kicker,
+.process.metal-process .kicker {
   font-family: var(--f-display);
   font-size: 0.74rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   font-weight: 700;
-  color: #732034;
+  color: #C7CCD6;
 }
-.process.light-process h2 {
+.process.light-process h2,
+.process.metal-process h2 {
   font-family: var(--f-display);
   font-weight: 800;
   font-size: clamp(2rem, 5vw, 3.4rem);
   line-height: 1.08;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  color: #15151A;
+  color: #FFFFFF;
 }
-.process.light-process h2 em {
+.process.light-process h2 em,
+.process.metal-process h2 em {
   display: block;
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
   font-weight: 700;
   text-transform: none;
   letter-spacing: -0.01em;
-  color: #732034 !important;
-  -webkit-text-fill-color: #732034 !important;
-  text-shadow: none !important;
+  color: #C7CCD6 !important;
+  -webkit-text-fill-color: #C7CCD6 !important;
+  text-shadow: 0 0 25px rgba(199, 204, 214, 0.25) !important;
 }
-.process.light-process .lead {
+.process.light-process .lead,
+.process.metal-process .lead {
   font-size: clamp(1rem, 1.4vw, 1.15rem);
-  color: #585550;
+  color: #A0A5B2;
   line-height: 1.6;
 }
 
-.process.light-process .steps {
+.process.light-process .steps,
+.process.metal-process .steps {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -990,16 +998,19 @@ html.menu-open { overflow: hidden; }
   gap: clamp(28px, 4vw, 44px);
 }
 @media (min-width: 700px) {
-  .process.light-process .steps { grid-template-columns: repeat(2, 1fr); }
+  .process.light-process .steps,
+  .process.metal-process .steps { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 1000px) {
-  .process.light-process .steps { grid-template-columns: repeat(4, 1fr); }
+  .process.light-process .steps,
+  .process.metal-process .steps { grid-template-columns: repeat(4, 1fr); }
 }
 
-.process.light-process .step {
+.process.light-process .step,
+.process.metal-process .step {
   background: transparent;
   border: none;
-  border-top: 1.5px solid #2B2B32;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.22);
   border-radius: 0;
   padding: 24px 0 0 0;
   display: flex;
@@ -1007,11 +1018,13 @@ html.menu-open { overflow: hidden; }
   gap: 0;
   transition: transform 0.3s ease;
 }
-.process.light-process .step:hover {
+.process.light-process .step:hover,
+.process.metal-process .step:hover {
   transform: translateY(-4px);
   background: transparent;
 }
-.process.light-process .step .n {
+.process.light-process .step .n,
+.process.metal-process .step .n {
   font-family: var(--f-display);
   font-weight: 800;
   font-size: clamp(3rem, 5vw, 4.4rem);
@@ -1024,35 +1037,38 @@ html.menu-open { overflow: hidden; }
   border: none;
   border-radius: 0;
   color: transparent;
-  -webkit-text-stroke: 1.6px #732034;
+  -webkit-text-stroke: 1.6px #C7CCD6;
   margin-bottom: 20px;
 }
-.process.light-process .step h3 {
+.process.light-process .step h3,
+.process.metal-process .step h3 {
   font-family: var(--f-display);
   font-weight: 800;
   font-size: 1.05rem;
   letter-spacing: -0.01em;
-  color: #151518;
+  color: #FFFFFF;
   margin: 0 0 10px 0;
   line-height: 1.35;
   text-transform: none;
 }
-.process.light-process .step p {
+.process.light-process .step p,
+.process.metal-process .step p {
   font-family: var(--f-body);
   font-size: 0.94rem;
-  color: #555562;
+  color: #949AA8;
   line-height: 1.6;
   margin: 0;
 }
 
-.process.light-process .res {
+.process.light-process .res,
+.process.metal-process .res {
   margin-top: clamp(48px, 6vw, 76px);
   font-family: var(--f-display);
   font-weight: 700;
   font-size: clamp(1.05rem, 2vw, 1.25rem);
   letter-spacing: 0.02em;
   text-transform: none;
-  color: #732034;
+  color: #C7CCD6;
   text-align: left;
 }
 
@@ -1231,9 +1247,9 @@ html.menu-open { overflow: hidden; }
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
   font-weight: 700;
-  color: #8B1E3F !important;
+  color: #1E293B !important;
   text-shadow: none !important;
-  -webkit-text-fill-color: #8B1E3F !important;
+  -webkit-text-fill-color: #1E293B !important;
 }
 .quiz.light-section .intro .lead {
   color: #444456;
@@ -1615,4 +1631,23 @@ html.menu-open { overflow: hidden; }
   .lead, .about .body, .pull, .fchips, .fc p, .step p, .scard p { margin-inline: auto; }
   .m-foot { justify-content: center; }
   .f-bottom { justify-content: center; }
+}
+
+/* Accessibility: Respeito a Prefers-Reduced-Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-bg-motion,
+  .ambient-orb,
+  .ambient-grid,
+  .ambient-beam,
+  .photo-glow,
+  .strip-track {
+    animation: none !important;
+    transform: none !important;
+  }
 }
