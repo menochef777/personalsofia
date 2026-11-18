@@ -544,3 +544,25 @@ if ('IntersectionObserver' in window && !reduced()) {
     obs.observe(el);
   });
 }
+
+/* Parallax Suave no Motion de Fundo da Hero */
+var heroEl = document.getElementById("inicio");
+if (heroEl && !reduced()) {
+  var ambientOrbs = heroEl.querySelectorAll(".ambient-orb");
+  var ticking = false;
+  heroEl.addEventListener("mousemove", function(e) {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        var rect = heroEl.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        ambientOrbs.forEach(function(orb, idx) {
+          var factor = (idx + 1) * 24;
+          orb.style.transform = "translate3d(" + (x * factor) + "px, " + (y * factor) + "px, 0)";
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+}
