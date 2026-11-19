@@ -819,12 +819,32 @@ html.menu-open { overflow: hidden; }
   font-weight: 700;
   color: var(--accent-metal);
 }
+.fchips-marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  padding: 6px 0;
+}
 .fchips {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  flex-wrap: nowrap;
+  width: max-content;
+  gap: 10px;
+  animation: fchipsSlide 22s linear infinite;
+  will-change: transform;
+}
+.fchips:hover {
+  animation-play-state: paused;
+}
+@keyframes fchipsSlide {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-33.333%, 0, 0); }
 }
 .fchips span {
+  flex-shrink: 0;
+  white-space: nowrap;
   font-family: var(--f-display);
   font-size: 0.68rem;
   letter-spacing: 0.12em;
@@ -1700,7 +1720,9 @@ html.menu-open { overflow: hidden; }
   .ambient-grid,
   .ambient-beam,
   .photo-glow,
-  .strip-track {
+  .strip-track,
+  .focus-track,
+  .fchips {
     animation: none !important;
     transform: none !important;
   }

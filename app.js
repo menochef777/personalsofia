@@ -323,8 +323,9 @@ $("#strip").innerHTML = stripItems.concat(stripItems).concat(stripItems).map(fun
   return '<span class="strip-item">' + esc(t) + '</span>';
 }).join("");
 
-/* Chips de Foco na Seção Sobre */
-$("#fchips").innerHTML = CFG.chips.map(function(c) {
+/* Chips de Foco na Seção Sobre - Loop Contínuo Marquee */
+var chipsList = CFG.chips.concat(CFG.chips).concat(CFG.chips);
+$("#fchips").innerHTML = chipsList.map(function(c) {
   return "<span>" + esc(c) + "</span>";
 }).join("");
 
