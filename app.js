@@ -323,10 +323,19 @@ $("#strip").innerHTML = stripItems.concat(stripItems).concat(stripItems).map(fun
   return '<span class="strip-item">' + esc(t) + '</span>';
 }).join("");
 
-/* Chips de Foco na Seção Sobre - Loop Contínuo Marquee */
-var chipsList = CFG.chips.concat(CFG.chips).concat(CFG.chips);
-$("#fchips").innerHTML = chipsList.map(function(c) {
-  return "<span>" + esc(c) + "</span>";
+/* Pilares de Atuação na Seção Sobre - Loop Ticker Contínuo */
+var pilaresItems = [
+  "Treino de Força",
+  "Linha de Glúteos",
+  "Remodelação Corporal",
+  "Biomecânica Aplicada",
+  "Massa Magra",
+  "Saúde Articular",
+  "Estúdio Privado"
+];
+var repeatedPilares = pilaresItems.concat(pilaresItems).concat(pilaresItems).concat(pilaresItems);
+$("#fchips").innerHTML = repeatedPilares.map(function(c) {
+  return '<span class="pilares-item">' + esc(c) + '</span>';
 }).join("");
 
 /* Áreas de foco - Carrossel contínuo em loop (passando da direita para a esquerda) */
