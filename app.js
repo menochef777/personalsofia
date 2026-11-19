@@ -584,6 +584,7 @@ if (heroEl && !reduced()) {
       video.pause();
       return;
     }
+    video.playbackRate = 0.5;
     var p = video.play();
     if (p && typeof p.catch === "function") {
       p.catch(function() { /* autoplay bloqueado: fica o primeiro frame */ });
