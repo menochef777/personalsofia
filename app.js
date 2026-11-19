@@ -116,8 +116,8 @@ var CFG = {
       where: "Praia da Vitória · Ilha Terceira",
       title: "Treino Presencial no Estúdio",
       text: "Sessões 1-para-1 exclusivas no Private Fitness Studio. Ambiente 100% reservado, biomecânica individualizada e equipamentos de elite Semperfit.",
-      cta: "Consultar Lista de Espera",
-      link: "Vagas presenciais por marcação"
+      cta: "Pedir Informação",
+      link: "Saber mais sobre o estúdio"
     },
     {
       id: "online",
@@ -125,7 +125,7 @@ var CFG = {
       where: "Portugal e Global",
       title: "Consultoria de Treino Online",
       text: "Acompanhamento à distância com a mesma metodologia do estúdio. Fichas estruturadas, tutoriais de execução em vídeo e suporte direto no WhatsApp.",
-      cta: "Quero Consultoria Online",
+      cta: "Pedir Informação",
       link: "Saber mais sobre a consultoria"
     }
   ],
@@ -356,11 +356,11 @@ $("#steps").innerHTML = CFG.steps.map(function(s, i) {
 /* Modalidades */
 $("#modes").innerHTML = CFG.modes.map(function(m, i) {
   return '<article class="mode mode-' + m.cls + '" data-reveal style="--d:' + (i * 0.12) + 's">'
-    + '<div class="where"><span class="loc-pin" aria-hidden="true">📍</span> ' + esc(m.where) + '</div>'
+    + '<div class="where">' + esc(m.where) + '</div>'
     + '<h3>' + esc(m.title) + '</h3>'
     + '<p>' + esc(m.text) + '</p>'
     + '<div class="m-foot">'
-    + '<a class="btn ' + (m.cls === 'a' ? 'btn-primary' : 'btn-ghost on-light') + '" data-wa="' + m.id + '" href="' + CFG.waDirect + '" target="_blank" rel="noopener">'
+    + '<a class="btn btn-ghost" data-wa="' + m.id + '" href="' + CFG.waDirect + '" target="_blank" rel="noopener">'
     + esc(m.cta) + '</a>'
     + '<a class="m-lnk" href="#questionario">' + esc(m.link) + ' →</a>'
     + '</div></article>';
