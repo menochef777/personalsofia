@@ -115,16 +115,16 @@ var CFG = {
       cls: "a",
       where: "Praia da Vitória · Ilha Terceira",
       title: "Treino Presencial no Estúdio",
-      text: "Sessões 1-para-1 exclusivas no Private Fitness Studio (Rua Serpa Pinto, nº 50). Ambiente reservado, equipamentos Semperfit e acompanhamento individualizado.",
-      cta: "Conhecer o Treino Presencial",
-      link: "Candidatar a vaga presencial"
+      text: "Sessões 1-para-1 exclusivas no Private Fitness Studio. Ambiente 100% reservado, biomecânica individualizada e equipamentos de elite Semperfit.",
+      cta: "Consultar Lista de Espera",
+      link: "Vagas presenciais por marcação"
     },
     {
       id: "online",
       cls: "b",
-      where: "Portugal e Online",
+      where: "Portugal e Global",
       title: "Consultoria de Treino Online",
-      text: "Acompanhamento à distância com a mesma metodologia do estúdio. Fichas detalhadas, tutoriais de execução em vídeo e suporte direto no WhatsApp.",
+      text: "Acompanhamento à distância com a mesma metodologia do estúdio. Fichas estruturadas, tutoriais de execução em vídeo e suporte direto no WhatsApp.",
       cta: "Quero Consultoria Online",
       link: "Saber mais sobre a consultoria"
     }
@@ -302,7 +302,7 @@ $("#nav").innerHTML = CFG.nav.map(function(n) {
 $("#mnav-in").innerHTML = CFG.nav.map(function(n) {
   return '<a class="ml" href="' + n[1] + '">' + esc(n[0]) + '</a>';
 }).join("")
-  + '<div class="macts" style="margin-top:24px"><a class="btn btn-primary" data-wa="avaliacao" href="' + CFG.waDirect + '" target="_blank" rel="noopener">Agendar Avaliação</a></div>';
+  + '<div class="macts" style="margin-top:24px"><a class="btn btn-primary" href="#questionario">Iniciar Avaliação</a></div>';
 
 /* Rodapé Navegação */
 $("#f-nav").innerHTML = CFG.nav.map(function(n) {
