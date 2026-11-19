@@ -218,16 +218,27 @@
       </div>
     </section>
 
-    <!-- O MÉTODO PASSO A PASSO (DARK METAL & AÇO) -->
-    <section class="process metal-process" id="como-funciona" aria-labelledby="h-proc">
+    <!-- QUESTIONÁRIO DE TRIAGEM -->
+    <section class="quiz" id="questionario" aria-labelledby="h-quiz">
       <div class="wrap">
-        <div class="head" data-reveal>
-          <p class="kicker">— COMO FUNCIONA</p>
-          <h2 id="h-proc">COMO FUNCIONA<br><em>O acompanhamento</em></h2>
-          <p class="lead">Um processo pensado para cada pessoa, do primeiro contacto à progressão.</p>
+        <div class="intro" data-reveal>
+          <p class="kicker">Triagem Inicial</p>
+          <h2 id="h-quiz">O teu primeiro <em class="hl hl-b">passo</em> começa aqui.</h2>
+          <p class="lead">Partilha connosco as tuas metas e preferências. Vamos estruturar a melhor abordagem para o teu perfil físico.</p>
+          <p class="priv">Perguntas rápidas e diretas. No fim, envias as respostas à Sofia pelo WhatsApp.</p>
         </div>
-        <ol class="steps" id="steps"></ol>
-        <p class="res" data-reveal>Resultado: treino com propósito, rigor técnico e evolução.</p>
+        <div class="qcard" data-reveal style="--d:.1s">
+          <div class="qtop">
+            <span id="q-count">Pergunta 1 de 6</span>
+            <span id="q-pct">0%</span>
+          </div>
+          <div class="bar" id="q-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso do questionário">
+            <i></i>
+          </div>
+          <div class="stage" id="stage" tabindex="-1"></div>
+          <div class="err" id="q-err" role="alert"></div>
+          <div class="qnav" id="q-nav"></div>
+        </div>
       </div>
     </section>
 
@@ -274,27 +285,16 @@
       </div>
     </section>
 
-    <!-- QUESTIONÁRIO DE TRIAGEM -->
-    <section class="quiz" id="questionario" aria-labelledby="h-quiz">
+    <!-- O MÉTODO PASSO A PASSO (DARK METAL & AÇO) -->
+    <section class="process metal-process" id="como-funciona" aria-labelledby="h-proc">
       <div class="wrap">
-        <div class="intro" data-reveal>
-          <p class="kicker">Triagem Inicial</p>
-          <h2 id="h-quiz">O teu primeiro <em class="hl hl-b">passo</em> começa aqui.</h2>
-          <p class="lead">Partilha connosco as tuas metas e preferências. Vamos estruturar a melhor abordagem para o teu perfil físico.</p>
-          <p class="priv">Perguntas rápidas e diretas. No fim, envias as respostas à Sofia pelo WhatsApp.</p>
+        <div class="head" data-reveal>
+          <p class="kicker">— COMO FUNCIONA</p>
+          <h2 id="h-proc">COMO FUNCIONA<br><em>O acompanhamento</em></h2>
+          <p class="lead">Um processo pensado para cada pessoa, do primeiro contacto à progressão.</p>
         </div>
-        <div class="qcard" data-reveal style="--d:.1s">
-          <div class="qtop">
-            <span id="q-count">Pergunta 1 de 6</span>
-            <span id="q-pct">0%</span>
-          </div>
-          <div class="bar" id="q-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso do questionário">
-            <i></i>
-          </div>
-          <div class="stage" id="stage" tabindex="-1"></div>
-          <div class="err" id="q-err" role="alert"></div>
-          <div class="qnav" id="q-nav"></div>
-        </div>
+        <ol class="steps" id="steps"></ol>
+        <p class="res" data-reveal>Resultado: treino com propósito, rigor técnico e evolução.</p>
       </div>
     </section>
 

@@ -27,8 +27,8 @@ var CFG = {
   nav: [
     ["Sobre", "#sobre"],
     ["Especialidades", "#areas"],
-    ["Método", "#como-funciona"],
     ["Onde Treinar", "#modalidades"],
+    ["Método", "#como-funciona"],
     ["Dúvidas", "#faq"]
   ],
   /* 8 cards de foco - Originais da Metodologia Sofia da Rocha */
