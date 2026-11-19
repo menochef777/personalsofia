@@ -85,7 +85,7 @@
 
   <!-- VÍDEO DE FUNDO SMOOTH SCROLL (EQUIPAMENTOS FLUTUANDO) -->
   <div class="site-scroll-video-wrap" aria-hidden="true" id="site-scroll-video-wrap">
-    <video class="site-scroll-video" id="site-scroll-video" autoplay loop muted playsinline preload="auto">
+    <video class="site-scroll-video" id="site-scroll-video" autoplay loop muted playsinline webkit-playsinline x5-playsinline preload="auto">
       <source src="assets/secaosmooth.mp4" type="video/mp4">
     </video>
     <div class="site-scroll-overlay"></div>
@@ -205,7 +205,7 @@
       </div>
     </section>
 
-    <!-- ÁREAS DE ESPECIALIZAÇÃO (Grid Alternado) -->
+    <!-- ÁREAS DE ESPECIALIZAÇÃO (Loop Horizontal de Cards) -->
     <section class="areas dark" id="areas" aria-labelledby="h-areas">
       <div class="wrap">
         <div class="head" data-reveal>
@@ -213,7 +213,11 @@
           <h2 id="h-areas">Pilares desenhados para a tua <em>evolução</em> física.</h2>
           <p class="lead">Planos orientados para resultados visíveis, saúde articular e máxima eficiência em cada repetição.</p>
         </div>
-        <div class="focus-grid" id="focus-grid"></div>
+      </div>
+      <div class="focus-marquee" id="focus-marquee" aria-label="Especialidades em loop contínuo">
+        <div class="focus-track" id="focus-grid"></div>
+      </div>
+      <div class="wrap">
         <p class="note">Cada organismo responde de forma única. O treino adapta-se ao teu ritmo e os resultados refletem a consistência do processo.</p>
       </div>
     </section>

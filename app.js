@@ -328,12 +328,14 @@ $("#fchips").innerHTML = CFG.chips.map(function(c) {
   return "<span>" + esc(c) + "</span>";
 }).join("");
 
-/* Áreas de foco - 8 cards em grid alternado */
-$("#focus-grid").innerHTML = CFG.focus.map(function(f, i) {
-  return '<article class="fc' + (f[3] ? ' feat' : '') + '" data-reveal style="--d:' + ((i % 3) * 0.07) + 's">'
+/* Áreas de foco - Carrossel contínuo em loop (passando da direita para a esquerda) */
+var focusCardsHTML = CFG.focus.map(function(f) {
+  return '<article class="fc' + (f[3] ? ' feat' : '') + '">'
     + '<svg class="fi" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter" aria-hidden="true">' + ICONS[f[2]] + '</svg>'
     + '<h3>' + esc(f[0]) + '</h3><p>' + esc(f[1]) + '</p></article>';
 }).join("");
+// Duplicado para loop infinito contínuo sem saltos
+$("#focus-grid").innerHTML = focusCardsHTML + focusCardsHTML;
 document.querySelectorAll("#focus-grid .fi > *").forEach(function(n) { n.setAttribute("pathLength", "1"); });
 
 /* Passos do Método */
@@ -578,6 +580,8 @@ if (heroEl && !reduced()) {
   // Loop contínuo por todo o site; sem controlo por scroll.
   video.loop = true;
   video.muted = true;
+  video.defaultMuted = true;
+  video.playbackRate = 0.8;
 
   function startVideo() {
     if (reduced()) {
@@ -587,10 +591,23 @@ if (heroEl && !reduced()) {
     video.playbackRate = 0.8;
     var p = video.play();
     if (p && typeof p.catch === "function") {
-      p.catch(function() { /* autoplay bloqueado: fica o primeiro frame */ });
+      p.catch(function() {
+        // Autoplay bloqueado em telemóveis com poupança de bateria: ativa no primeiro toque ou scroll
+        var startOnInteract = function() {
+          video.play();
+          window.removeEventListener("touchstart", startOnInteract);
+          window.removeEventListener("scroll", startOnInteract);
+        };
+        window.addEventListener("touchstart", startOnInteract, { passive: true, once: true });
+        window.addEventListener("scroll", startOnInteract, { passive: true, once: true });
+      });
     }
   }
 
-  if (video.readyState >= 2) startVideo();
-  else video.addEventListener("canplay", startVideo, { once: true });
+  // Tenta iniciar de imediato (sem esperar pelo buffer completo de canplay)
+  startVideo();
+  if (video.readyState >= 1) startVideo();
+  video.addEventListener("loadedmetadata", startVideo, { once: true });
+  video.addEventListener("loadeddata", startVideo, { once: true });
+  video.addEventListener("canplay", startVideo, { once: true });
 })();
